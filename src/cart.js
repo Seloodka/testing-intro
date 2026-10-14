@@ -30,8 +30,24 @@ function addToCart(cart, product, qty) {
   return cart;
 }
 
-function changeQuantity() {
-  return notImplemented();
+function changeQuantity(cart, id, qty) {
+  if (qty === 0) {
+    throw new RangeError("Нельзя сделать товаров меньше 1");
+  }
+
+  const targetProduct = cart.find((product) => product.id === id);
+
+  if (!targetProduct) {
+    return cart;
+  }
+
+  if (qty > targetProduct.stock) {
+    throw new RangeError("Нельзя добавить товаров больше, чем есть на складе");
+  }
+
+  targetProduct.quantity = qty;
+
+  return cart;
 }
 function removeFromCart() {
   return notImplemented();
