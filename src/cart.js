@@ -1,7 +1,3 @@
-function notImplemented() {
-  throw new Error("Корзина ещё не реализована. Сначала прочитайте тесты.");
-}
-
 function addToCart(cart, product, qty) {
   if (qty === 0) {
     throw new RangeError("Нельзя добавить нулевое количество");
@@ -50,7 +46,7 @@ function changeQuantity(cart, id, qty) {
   return cart;
 }
 
-function removeFromCart(cart = [], id) {
+function removeFromCart(cart, id) {
   const productToDeleteIndex = cart.findIndex((product) => product.id === id);
 
   if (productToDeleteIndex === -1) {
@@ -69,7 +65,7 @@ function calculateCartSubtotal(cart) {
   );
 }
 
-function calculateOrderTotal(cart, promo = "") {
+function calculateOrderTotal(cart, promo) {
   const order = {
     subtotal: 0,
     discount: 0,
