@@ -32,7 +32,7 @@ function addToCart(cart, product, qty) {
 
 function changeQuantity(cart, id, qty) {
   if (qty === 0) {
-    throw new RangeError("Нельзя сделать товаров меньше 1");
+    throw new RangeError("Товара не может быть меньше одного");
   }
 
   const targetProduct = cart.find((product) => product.id === id);
