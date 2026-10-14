@@ -15,26 +15,26 @@ describe('getProductById', () => {
   });
 
   test('ID 0 возвращает null', () => {
-    expect(getProductById(products, 0)).toEqual(null);
+    expect(getProductById(products, 0)).toBeNull();
   });
 
   test('ID 999 возвращает null', () => {
-    expect(getProductById(products, 999)).toEqual(null);
+    expect(getProductById(products, 999)).toBeNull();
   });
 
   test('ID -1 возвращает null', () => {
-    expect(getProductById(products, -1)).toEqual(null);
+    expect(getProductById(products, -1)).toBeNull();
   });
 
   test("строковый ID '1' возвращает null", () => {
-    expect(getProductById(products, '1')).toEqual(null);
+    expect(getProductById(products, '1')).toBeNull();
   });
 
   test('ID undefined возвращает null', () => {
-    expect(getProductById(products, undefined)).toEqual(null);
+    expect(getProductById(products, undefined)).toBeNull();
   });
 
   test('ID NaN возвращает null', () => {
-    expect(getProductById(products, NaN)).toEqual(null);
+    expect(getProductById(products, NaN)).toBeNull();
   });
 });

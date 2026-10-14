@@ -31,14 +31,14 @@ describe('filterByCategory', () => {
   });
 
   test('Фильтр clothes должен вернуть []', () => {
-    expect(filterByCategory(products, 'clothes').map((product) => product.id)).toEqual([]);
+    expect(filterByCategory(products, 'clothes').map((product) => product.id)).toHaveLength(0);
   });
 
   test('Фильтр toys должен вернуть []', () => {
-    expect(filterByCategory(products, 'toys').map((product) => product.id)).toEqual([]);
+    expect(filterByCategory(products, 'toys').map((product) => product.id)).toHaveLength(0);
   });
 
   test('Фильтр sports должен вернуть []', () => {
-    expect(filterByCategory(products, 'sports').map((product) => product.id)).toEqual([]);
+    expect(filterByCategory(products, 'sports').map((product) => product.id)).toHaveLength(0);
   });
 });
