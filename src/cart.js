@@ -1,6 +1,6 @@
 function addToCart(cart, product, qty) {
   if (qty === 0) {
-    throw new RangeError("Нельзя добавить нулевое количество");
+    throw new RangeError('Нельзя добавить нулевое количество');
   }
 
   let cartProduct = cart.find((cartProduct) => cartProduct.id === product.id);
@@ -14,11 +14,8 @@ function addToCart(cart, product, qty) {
     cartProduct.quantity = 0;
   }
 
-  if (
-    cartProduct.quantity + qty > cartProduct.stock ||
-    qty > cartProduct.stock
-  ) {
-    throw new RangeError("Нельзя добавить товаров больше, чем есть на складе");
+  if (cartProduct.quantity + qty > cartProduct.stock || qty > cartProduct.stock) {
+    throw new RangeError('Нельзя добавить товаров больше, чем есть на складе');
   }
 
   cartProduct.quantity += qty;
@@ -28,7 +25,7 @@ function addToCart(cart, product, qty) {
 
 function changeQuantity(cart, id, qty) {
   if (qty === 0) {
-    throw new RangeError("Товара не может быть меньше одного");
+    throw new RangeError('Товара не может быть меньше одного');
   }
 
   const targetProduct = cart.find((product) => product.id === id);
@@ -38,7 +35,7 @@ function changeQuantity(cart, id, qty) {
   }
 
   if (qty > targetProduct.stock) {
-    throw new RangeError("Нельзя добавить товаров больше, чем есть на складе");
+    throw new RangeError('Нельзя добавить товаров больше, чем есть на складе');
   }
 
   targetProduct.quantity = qty;
@@ -59,10 +56,7 @@ function removeFromCart(cart, id) {
 }
 
 function calculateCartSubtotal(cart) {
-  return cart.reduce(
-    (total, { price, quantity }) => (total += price * quantity),
-    0,
-  );
+  return cart.reduce((total, { price, quantity }) => (total += price * quantity), 0);
 }
 
 function calculateOrderTotal(cart, promo) {
@@ -78,7 +72,7 @@ function calculateOrderTotal(cart, promo) {
     order.delivery = 30000;
   }
 
-  if (order.subtotal >= 20000 && promo === "SAVE10") {
+  if (order.subtotal >= 20000 && promo === 'SAVE10') {
     order.discount = order.subtotal * 0.1;
   }
 
@@ -95,5 +89,5 @@ const cartApi = {
   calculateOrderTotal,
 };
 
-if (typeof module !== "undefined") module.exports = cartApi;
-if (typeof window !== "undefined") window.cartApi = cartApi;
+if (typeof module !== 'undefined') module.exports = cartApi;
+if (typeof window !== 'undefined') window.cartApi = cartApi;
