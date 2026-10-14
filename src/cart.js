@@ -49,9 +49,19 @@ function changeQuantity(cart, id, qty) {
 
   return cart;
 }
-function removeFromCart() {
-  return notImplemented();
+
+function removeFromCart(cart = [], id) {
+  const productToDeleteIndex = cart.findIndex((product) => product.id === id);
+
+  if (productToDeleteIndex === -1) {
+    return cart;
+  }
+
+  cart.splice(productToDeleteIndex, 1);
+
+  return cart;
 }
+
 function calculateCartSubtotal() {
   return notImplemented();
 }
