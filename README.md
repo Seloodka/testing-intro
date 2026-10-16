@@ -187,7 +187,10 @@ npm run test:coverage
    ```bash
    git clone https://github.com/seloodka/testing-intro.git
    cd testing-intro
-   git checkout -b testing-intro
+   git checkout testing-intro
+   npm install
+   npm run test
+   npm run test:coverage
    ```
 
 4. Проверьте тесты каталога: для каждой из четырёх функций должны быть как минимум три сценария, по три конкретных кейса в каждом.
